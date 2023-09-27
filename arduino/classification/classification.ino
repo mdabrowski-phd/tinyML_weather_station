@@ -108,6 +108,30 @@ void setup() {
 }
 #endif // defined(ARDUINO_NANO33_BLE_SENSE)
 
+#if defined(ARDUINO_RASPBERRY_PI_PICO)
+#include <DHT.h>
+
+const int gpio_pin_dht_pin = 10;
+
+DHT dht(gpio_pin_dht_pin, DHT11);
+
+#define READ_TEMPERATURE() dht.readTemperature()
+#define READ_HUMIDITY()    dht.readHumidity()
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  // Initialize the DHT sensor
+  dht.begin();
+
+  // Waiting for the peripheral for being ready
+  delay(2000);
+
+  tflu_initialization();
+}
+#endif // defined(RASPBERRY_PI_PICO)
+
 void loop() {
   float t = 0.0f;
   float h = 0.0f;
