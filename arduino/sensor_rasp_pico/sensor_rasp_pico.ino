@@ -16,15 +16,15 @@ void setup() {
 
   // Waiting for the peripheral for being ready
   delay(2000);
+}
 
+void loop() {
   Serial.print("Test Temperature = ");
   Serial.print(READ_TEMPERATURE(), 2);
   Serial.println(" °C");
   Serial.print("Test Humidity = ");
   Serial.print(READ_HUMIDITY(), 2);
   Serial.println(" %");
-}
 
-void loop() {
   delay(2000);
 }
