@@ -14,10 +14,10 @@
 #define NUM_HOURS 3
 
 constexpr int num_reads = 3;
-constexpr float t_mean  = 2.05179f;
-constexpr float h_mean  = 82.30551f;
-constexpr float t_std   = 7.33084f;
-constexpr float h_std   = 14.55707f;
+constexpr float t_mean  = 4.28224f;
+constexpr float h_mean  = 83.63988f;
+constexpr float t_std   = 8.77749f;
+constexpr float h_std   = 16.4139f;
 
 // Circular buffers for the input features
 int8_t t_vals[NUM_HOURS] = {0};
@@ -113,7 +113,7 @@ void setup() {
 
 const int gpio_pin_dht_pin = 10;
 
-DHT dht(gpio_pin_dht_pin, DHT11);
+DHT dht(gpio_pin_dht_pin, DHT22);
 
 #define READ_TEMPERATURE() dht.readTemperature()
 #define READ_HUMIDITY()    dht.readHumidity()
