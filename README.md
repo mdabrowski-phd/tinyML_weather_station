@@ -7,7 +7,7 @@
 
 I have been inspired by [Smart weather station challenge](https://challenge.aiforgood.itu.int/match/matchitem/71): to develop a fully functioning low-power, reliable, accurate, easy to install and maintain cost effective [weather station based on a single device](./TinyML_Challenge_2022_CSEM_report.pdf) able to detect weather parameters (temperature, pressure and humidity, wind and rain) with no moving parts based on ultra-low power machine learning at the edge, that can be deployed locally in a farm, for example, to provide local conditions and assist farmers in deciding when to plant crops. __Thus I decided to build my own microcontroller-based station to predict weather conditions in Warsaw using [TinyML system](https://www.oreilly.com/library/view/tinyml/9781492052036/).__
 
-<img src="./graphics/prototype_2.jpg" alt="Arduino_prototype" width="600"/>
+<img src="./graphics/prototype_2.JPG" alt="Arduino_prototype" width="600"/>
 
 ## Getting Started
 
@@ -88,7 +88,7 @@ def retrieve_this_location(api_key, location, start_date, end_date, frequency, r
 const int gpio_pin_dht_pin = 13;
 ```
 
-<img src="./graphics/prototype_1.jpg" alt="Arduino_RaspberryPi_prototypes" width="600"/>
+<img src="./graphics/prototype_1.JPG" alt="Arduino_RaspberryPi_prototypes" width="600"/>
 
 ## Author
 
