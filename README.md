@@ -65,7 +65,7 @@ constexpr float h_std   = 14.55707f;
 
 ## Help
 
-* We use an existing [__wwo-hist__](https://pypi.org/project/wwo-hist/) wrapper to export the data to __pandas__ `DataFrame` or save them as `CSV` file. However, the wrapper file needs to be modified for __pandas__ versions <u>later than 1.3.5</u> (argument `closed` is no longer supported and needs to be removed from arguments list).
+* We use an existing [__wwo-hist__](https://pypi.org/project/wwo-hist/) wrapper to export the data to __pandas__ `DataFrame` or save them as `CSV` file. However, the wrapper file needs to be modified for __pandas__ versions <u>later than 1.3.5</u> (argument `closed` is no longer supported by `pd.date_range()` method and needs to be removed from arguments list).
 
 ```python
 def retrieve_this_location(api_key, location, start_date, end_date, frequency, response_cache_path):
@@ -76,7 +76,17 @@ def retrieve_this_location(api_key, location, start_date, end_date, frequency, r
     # LINES BELOW ...
 ```
 
-&emsp;&emsp;Peplace the original `wwo_hist-0.0.7/wwo_hist/__init__.py` file on local PC by [this one](./wwo_hist-0.0.7/wwo_hist/__init__.py) with modified `retrieve_this_location()` function.
+&emsp;&emsp;To avoid warnings, we have also changed the following line:
+
+```python
+def extract_monthly_data(data):
+    '''change just this line keeping the rest of the code'''
+    # LINES ABOVE ...
+    df=df.ffill()  # previously:df=df.fillna(method="ffill")
+    # LINES BELOW ...
+```
+
+&emsp;&emsp;Please replace the original `wwo_hist-0.0.7/wwo_hist/__init__.py` file on local PC by [this one](./wwo_hist-0.0.7/wwo_hist/__init__.py) with modified `retrieve_this_location()` and `extract_monthly_data()` functions.
 
 * At the end of Arduino sketches code, there is a delay of <u>two seconds</u> but is should be <u>one hour</u> in the actual application! The pause of two seconds is used to avoid waiting too long in our experiments (we have decided to predict weather in an hourly manner). Also, in the `DEBUG_SNOW` mode there are implemented conditions where model predict snowing weather (to check if the logic of Arduino application works).
 
@@ -84,7 +94,9 @@ def retrieve_this_location(api_key, location, start_date, end_date, frequency, r
 #define DEBUG_SNOW 0 // replace by 1 for testing
 ```
 
-* Due to [self-heating](https://forum.arduino.cc/t/how-to-make-a-weather-station-and-fix-temperature-sensor-readings-on-the-sense/624985), when the ___Arduino Nano 33 BLE Sens___ board is powered by USB, the HTS221 sensor becomes unreliable and shows an offset in each reading that changes with the external temperature. Thus, powering the board with batteries is recommended. <u>Atlernative approach:</u> use external __DHT22__ sensor and then copy the __RaspberryPi Pico__ `setup()` function from `#if-#endif` part and choose the __GPIO__ port to, for example:
+* Due to [self-heating](https://forum.arduino.cc/t/how-to-make-a-weather-station-and-fix-temperature-sensor-readings-on-the-sense/624985), when the ___Arduino Nano 33 BLE Sens___ board is powered by USB, the HTS221 sensor becomes unreliable and shows an offset in each reading that changes with the external temperature. Thus, powering the board with batteries is recommended.
+
+> **NOTE**: As an alternative approach, use external __DHT22__ sensor and then copy the __RaspberryPi Pico__ `setup()` function from `#if-#endif` part and choose the __GPIO__ port to, for example:
 
 ```C++
 const int gpio_pin_dht_pin = 13;
