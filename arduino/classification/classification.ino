@@ -109,7 +109,7 @@ void setup() {
 #endif // defined(ARDUINO_NANO33_BLE_SENSE)
 
 #if defined(ARDUINO_RASPBERRY_PI_PICO)
-#include <DHT.h>
+//#include <DHT.h>
 
 const int gpio_pin_dht_pin = 10;
 
