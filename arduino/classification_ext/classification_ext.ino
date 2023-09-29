@@ -54,7 +54,7 @@ void tflu_initialization()
   Serial.println("TFLu initialization - start");
 
   // Load the TFLITE model
-  tflu_model = tflite::GetModel(forecast_model_tflite);
+  tflu_model = tflite::GetModel(outputs_forecast_model_tflite);
   if (tflu_model->version() != TFLITE_SCHEMA_VERSION) {
     Serial.print(tflu_model->version());
     Serial.println("");
