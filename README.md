@@ -113,6 +113,7 @@ const int gpio_pin_dht_pin = 13;
 ## Version History
 
 * __v1__
+    * __v1.3__ (released: 02-OCT-2023): extended exploratory data analysis (EDA), feature engineering and model performance testing
     * __v1.2__ (released: 30-SEP-2023): removed errors for ___RaspberryPi Pico___ board with __Arduino_TensorFlowLite-2.4.0-ALPHA__ library
     * __v1.1__ (released: 28-SEP-2023): working version of the simple ML model deployed on ___Arduino___ board with external __DHT22__ sensor
     * __v1.0__ (released: 27-SEP-2023): first working version of the simple ML model to be deployed on ___Arduino___ and ___RaspberryPi___ boards
