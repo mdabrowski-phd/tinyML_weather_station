@@ -16,9 +16,10 @@ I have been inspired by [Smart weather station challenge](https://challenge.aifo
 ### Dependencies
 
 * The main content of realized machine learning project is covered within [__TinyML_project__](./TinyML_project_MDabrowski.ipynb) Jyputer notebook describing whole process of data analysis and model training. ___NOTE___: The model can be fully-implemented, trained and tested on PC but additional microcontroller is needed for model deployment.
+* Additional [__Transformers__](./notebook_Transformers.ipynb) Jupyter notebook contains implementations of transformers which might be used in the main [__TinyML_project__](./TinyML_project_MDabrowski.ipynb) notebook for more rubust exploratory data analysis (EDA). However, it is optional and all required steps of EDA have been already included within [__TinyML_project__](./TinyML_project_MDabrowski.ipynb).
+* Additional [__Arduino_sketches__](./notebook_ArduinoSketches.ipynb) Jupyter notebook contains structure of TinyML application written in C language with comments on program structure.
 * Hardware part to run real-time machine learning application requires [___Arduino Nano 33 BLE Sens___](https://docs.arduino.cc/hardware/nano-33-ble-sense). However, after little modifications (included in the [__Arduino_sketches__](./notebook_ArduinoSketches.ipynb) comments) the weather forecast application can be deployed on other microcontrollers e.g., [___RaspberryPi Pico___](https://www.raspberrypi.com/products/raspberry-pi-pico/) using [_Arduino IDE_](https://www.upesy.com/blogs/tutorials/install-raspberry-pi-pico-on-arduino-ide-software).
 * ___Arduino Nano 33 BLE Sens___ has built-in [TPH](https://www.st.com/en/mems-and-sensors/hts221.html) sensor so we do not need external electronics components. If needed, use [DHT22](https://www.adafruit.com/product/393) sensor or similar. Then __Adafruit Unified Sensor__ (Arduino IDE library manager) and __DHT Sensor Library__ ([ZIP file](./arduino/DHT_sensor_library-1.4.4.zip) included) are necessary.
-* Additional [__Arduino_sketches__](./notebook_ArduinoSketches.ipynb) Jupyter notebook contains structure of TinyML application written in C language with comments on program structure.
 * __Python 3.10.6:__ For details about the version of the Python packages installed when running the [__project notebook__](./TinyML_project_MDabrowski.ipynb), see [__requirements.txt__](./requirements.txt).
 * __TensorFlow Lite for Microcontrollers (TFLu)__ for __Arduino__ board  is included as a separate library in the Arduino IDE environment. However, for ___RaspberryPi Pico___ platform it might be necessary to upload an additional  __Arduino_TensorFlowLite-2.4.0-ALPHA__ library from [ZIP file](./adruino/Arduino_TensorFlowLite-2.4.0-ALPHA.zip).
 * [__Official tutorial__](https://docs.arduino.cc/tutorials/nano-33-ble-sense/get-started-with-machine-learning) showing how to configure the Arduino IDE, install __TFLu__ library and run first programs on ___Arduino Nano 33 BLE Sens___.
@@ -113,6 +114,7 @@ const int gpio_pin_dht_pin = 13;
 ## Version History
 
 * __v1__
+    * __v1.4__ (released: 03-OCT-2023): additional Jupyter **notebook with transformers** implementations for more robust EDA process
     * __v1.3__ (released: 02-OCT-2023): extended exploratory data analysis (EDA), feature engineering and model performance testing
     * __v1.2__ (released: 30-SEP-2023): removed errors for ___RaspberryPi Pico___ board with __Arduino_TensorFlowLite-2.4.0-ALPHA__ library
     * __v1.1__ (released: 28-SEP-2023): working version of the simple ML model deployed on ___Arduino___ board with external __DHT22__ sensor
