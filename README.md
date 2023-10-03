@@ -45,7 +45,7 @@ api_key = '<YOUR_PERSONAL_API_KEY>'  # you need to register to obtain a personal
 * All models generated in [__TinyML_project__](./TinyML_project_MDabrowski.ipynb) Jupyter notebook are saved in `outputs` folder. Final C-byte header file should be copied into `arduino/classification` folder with TinyML application code. Other folders inside `arduino` are just for testing.
 > __NOTE:__ If you use ___Arduino___ board with external __DHT22__ sensor, please use `arduino/classification_ext` folder instead.
 
-* Please remember that ___mean___ and ___std___ of temperature and humidity extracted from __TF model__ ([__TinyML_project__](./TinyML_project_MDabrowski.ipynb)):
+* Please remember that ___mean___ and ___std___ of temperature and humidity extracted from __TF model__ ([__TinyML_project__](./TinyML_project_MDabrowski.ipynb)) - output code below:
 
 ```python
 print("COPY ME!")
@@ -53,7 +53,7 @@ print("Temperature - [MEAN, STD]  ", round(t_avg, 5), round(t_std, 5))
 print("Humidity - [MEAN, STD]     ", round(h_avg, 5), round(h_std, 5))
 ```
 
-&emsp;&emsp;<u>must be copied</u> into [__Arduino code__](./notebook_ArduinoSketches.ipynb) as well (here are some example values, for reference):
+&emsp;&emsp;<u>must be copied</u> into [__Arduino code__](./notebook_ArduinoSketches.ipynb) as well. For convenience they can be copied from `outputs/CALIBRATION.txt` file as well. Here are some example values copied into TinyML application after EDA process, for reference:
 
 ```C++
 constexpr float t_mean  = 2.05179f;
