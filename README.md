@@ -114,6 +114,7 @@ const int gpio_pin_dht_pin = 13;
 ## Version History
 
 * __v1__
+    * __v1.5__ (released: 05-OCT-2023): implementation of more complicated model architectures, searching for best hyperparameters 
     * __v1.4__ (released: 03-OCT-2023): additional Jupyter **notebook with transformers** implementations for more robust EDA process
     * __v1.3__ (released: 02-OCT-2023): extended exploratory data analysis (EDA), feature engineering and model performance testing
     * __v1.2__ (released: 30-SEP-2023): removed errors for ___RaspberryPi Pico___ board with __Arduino_TensorFlowLite-2.4.0-ALPHA__ library
