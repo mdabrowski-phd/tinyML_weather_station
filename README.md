@@ -13,6 +13,31 @@ I have been inspired by [Smart weather station challenge](https://challenge.aifo
 
 ## Getting Started
 
+Here is a **simplified tree of the project structure**, described in details within [__TinyML_project__](./TinyML_project_MDabrowski.ipynb) Jyputer notebook and summarized below.
+```
+.
+├── README.md
+├── TinyML_project_MDabrowski.ipynb
+├── arduino
+│   ├── Arduino_TensorFlowLite-2.4.0-ALPHA.zip
+│   ├── DHT_sensor_library-1.4.4.zip
+│   ├── classification
+│   ├── classification_ext
+│   └── test_
+├── graphics
+├── notebook_ArduinoSketches.ipynb
+├── notebook_Transformers.ipynb
+├── outputs
+│   ├── CALIBRATION.txt
+│   ├── dataset.csv
+│   ├── forecast
+│   ├── forecast_model.tflite
+│   └── model.h
+├── requirements.txt
+├── weather_warsaw.csv
+└── wwo_hist-0.0.7.zip
+```
+
 ### Dependencies
 
 * The main content of realized machine learning project is covered within [__TinyML_project__](./TinyML_project_MDabrowski.ipynb) Jyputer notebook describing whole process of data analysis and model training. ___NOTE___: The model can be fully-implemented, trained and tested on PC but additional microcontroller is needed for model deployment.
