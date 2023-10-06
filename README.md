@@ -63,6 +63,8 @@ api_key = '<YOUR_PERSONAL_API_KEY>'  # you need to register to obtain a personal
  - `tempC`: the temperature in degrees Celsius
  - `humidity`: the relative air humidity in percentage
  - `totalSnow_cm`: total snowfall in centimeters
+ 
+ * I have made _exploratory data analysis_ and _machine learning pipelines_ not only for **Warsaw (PL)**, but also for other cities: **Chamonix (FR)**, **Quebec (CA)**, **Sapporo (JP)**, **Syracuse (US)**, **Valdez (US)**, and **Zurich (CH)** (which are the most snowy cities from different countries) obtaining every time the similar performance. You can download these datasets and made similar analysis by changing `LOCATION` parameter in [__TinyML_project__](./TinyML_project_MDabrowski.ipynb) notebook.
 
 
 ### TinyML program
