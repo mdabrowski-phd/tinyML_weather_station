@@ -122,6 +122,12 @@ def extract_monthly_data(data):
 #define DEBUG_SNOW 0 // replace by 1 for testing
 ```
 
+* By default we deployed the model without prior quantization due to strong accuracy drop for quantized version. The application code remains the same as we need to operate on `int_8` values. Hovewer, if you want to deploy previously prepared quantized model, please change `QUANTIZATION` value:
+
+```C++
+#define QUANTIZATION 0 // replace by 1 for quantized models
+```
+
 * Due to [self-heating](https://forum.arduino.cc/t/how-to-make-a-weather-station-and-fix-temperature-sensor-readings-on-the-sense/624985), when the ___Arduino Nano 33 BLE Sens___ board is powered by USB, the HTS221 sensor becomes unreliable and shows an offset in each reading that changes with the external temperature. Thus, powering the board with batteries is recommended.
 
 > **NOTE**: As an alternative approach, use external __DHT22__ sensor and then copy the __RaspberryPi Pico__ `setup()` function from `#if-#endif` part and choose the __GPIO__ port to, for example:
@@ -139,6 +145,9 @@ const int gpio_pin_dht_pin = 13;
 [**Michał Dąbrowski, PhD**](https://www.linkedin.com/in/mdabrowski-phd/) (see: [HarvardX TinyML Program Certificate](https://credentials.edx.org/credentials/1d5b06c62fab4a43acce960d7d841c16/))
 
 ## Version History
+
+* __v2__
+    * __v2.0__ (released: 7-OCT-2023): full model deployment **without prior quantization** on both ___Arduino___ and ___RaspberryPi___ boards
 
 * __v1__
     * __v1.5__ (released: 05-OCT-2023): implementation of more complicated model architectures, searching for best hyperparameters 

@@ -1,5 +1,7 @@
 // Note: Set to 1 if you want to check whether the model can forecast the snow
 #define DEBUG_SNOW 0
+// Note: Set to 1 if you want to deploy the previously prepared quantized model
+#define QUANTIZATION 0 
 
 #include "model.h"
 
@@ -78,11 +80,18 @@ void tflu_initialization()
   const auto* i_quantization = reinterpret_cast<TfLiteAffineQuantization*>(tflu_i_tensor->quantization.params);
   const auto* o_quantization = reinterpret_cast<TfLiteAffineQuantization*>(tflu_o_tensor->quantization.params);
 
+#if QUANTIZATION == 1
   // Get the quantization parameters (per-tensor quantization)
   tflu_i_scale      = i_quantization->scale->data[0];
   tflu_i_zero_point = i_quantization->zero_point->data[0];
   tflu_o_scale      = o_quantization->scale->data[0];
   tflu_o_zero_point = o_quantization->zero_point->data[0];
+#else
+  tflu_i_scale      = 1;
+  tflu_i_zero_point = 0;
+  tflu_o_scale      = 1;
+  tflu_o_zero_point = 0;
+#endif
 
   Serial.println("TFLu initialization - completed");
 }
