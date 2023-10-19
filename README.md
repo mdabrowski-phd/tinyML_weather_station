@@ -83,10 +83,10 @@ print("Humidity - [MEAN, STD]     ", round(h_avg, 5), round(h_std, 5))
 &emsp;&emsp;<u>must be copied</u> into [__Arduino code__](./notebook_ArduinoSketches.ipynb) as well. For convenience they can be copied from `outputs/CALIBRATION.txt` file as well. Here are some example values copied into TinyML application after EDA process, for reference:
 
 ```C++
-constexpr float t_mean  = 2.05179f;
-constexpr float h_mean  = 82.30551f;
-constexpr float t_std   = 7.33084f;
-constexpr float h_std   = 14.55707f;
+constexpr float t_mean  = 4.49543f;
+constexpr float h_mean  = 83.52831f;
+constexpr float t_std   = 8.86421f;
+constexpr float h_std   = 16.15939f;
 ```
 
 * After compiling (several minutes) and uploading the `classification.ino` on the board, the serial port monitor in the _Arduino IDE_ will report ___Yes, it snows___ or ___No, it does not snow___, depending on whether snow is forecast at the moment. To check if the application can forecast snow, you can simply force the temperature to -10 Celsisus degree and humidity to 100%. The model should then return ___Yes, it snows___ message on the serial port monitor.

@@ -1,10 +1,10 @@
 #define NUM_HOURS 3
 
 constexpr int num_reads = 3;
-constexpr float t_mean  = 4.28224f;
-constexpr float h_mean  = 83.63988f;
-constexpr float t_std   = 8.77749f;
-constexpr float h_std   = 16.4139f;
+constexpr float t_mean  = 4.49543f;
+constexpr float h_mean  = 83.52831f;
+constexpr float t_std   = 8.86421f;
+constexpr float h_std   = 16.15939f;
 
 // Circular buffers for the input features
 int8_t t_vals[NUM_HOURS] = {0};
